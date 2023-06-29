@@ -58,8 +58,8 @@ const page = () => {
                 </div>
         
                 <div className="sticky h-10 top-14 sm:flex md:flex lg:flex flex-col gap-3 w-2/5" >
-                  <Categories 
-                    
+                  <AdSection 
+                 
                    /> 
                   <hr/>
                   <RelatedOrRecents 
