@@ -3,10 +3,13 @@
 
 import React from 'react'
 
-export const AdSection = () => {
+export default AdSection = () => {
   return (
     
-    // adding ads 
+    // adding ads di
+    <div>
+        ad
+    </div>
   )
 }
 

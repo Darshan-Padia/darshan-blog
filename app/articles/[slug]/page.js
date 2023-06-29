@@ -7,7 +7,7 @@ import RelatedOrRecents from "../../components/RelatedOrRecents";
 import {Comments} from "../../components/Comments";
 import {ArticleDetail} from "../../components/ArticleDetail";
 import {CommentsForm} from "../../components/CommentsForm";
-
+import {AdSection} from "../../components/AdSection";
 const page = () => {
     const [post, setPost] = useState({});
     const [loading, setLoading] = useState(true);
