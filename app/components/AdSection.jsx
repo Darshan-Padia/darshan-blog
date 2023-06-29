@@ -3,7 +3,7 @@
 
 import React from 'react'
 
-export default AdSection = () => {
+export const AdSection = () => {
   return (
     
     // adding ads di
