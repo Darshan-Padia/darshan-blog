@@ -51,7 +51,8 @@ const SingleCategory = (props) => {
      
 
       {/* <Link href={`/categories/${props.category.slug}`}> */}
-        <div onClick={showArticleCategoryWise} 
+
+      {  !window.location.pathname.includes("articles") && <button onClick={showArticleCategoryWise} 
          className="text-lg cursor-pointer  bg-slate-400 hover:bg-slate-500 p-2 py-1 rounded-lg font-semibold "
          >
           {props.category.name}
@@ -61,7 +62,24 @@ const SingleCategory = (props) => {
               <span className="text-red-500 ml-2 cursor-pointer">X</span>
             }
 
-        </div>
+        </button>}
+        {
+          // check url if article is present then diable all the buttons
+
+
+          window.location.pathname.includes("articles") &&
+          <button disabled = {true} title="disabled button"
+         className="text-lg bg-slate-400 hover:bg-slate-500 p-2 py-1 rounded-lg font-semibold "
+         >
+          {props.category.name}
+          {/* if this article is present in category array then showing cross button to make option available to remove it */}
+            {
+              catArray.includes(props.category.name) && 
+              <span className="text-red-500 ml-2 cursor-pointer">X</span>
+            }
+
+        </button>
+        }
       {/* </Link> */}
 
      
