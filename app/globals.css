@@ -4,3 +4,6 @@
 p:hover {
   opacity: 0.7;
 }/*# sourceMappingURL=globals.css.map */
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
