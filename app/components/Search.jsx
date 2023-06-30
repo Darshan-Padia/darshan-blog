@@ -7,7 +7,12 @@ const Search = ({data, setData, filteredData, setFilteredData}) => {
     const [searchClicked, setSearchClicked] = useState(false)
     const handleSearch = (e) => {
         e.preventDefault();
-        setSearchClicked(true);
+        // setSearchClicked(true);
+        if (searchQuery === "") {
+            setSearchClicked(false);
+        }else{
+            setSearchClicked(true);
+        }
         console.log(searchQuery);
         let newFilteredData = data.filter((article) => {
             return (
@@ -44,7 +49,7 @@ const Search = ({data, setData, filteredData, setFilteredData}) => {
                     </button>
                 </div>
                 {/* if search is clicked showing remove search filter  */}
-                {searchClicked && (
+                {searchClicked  && (
                     <div className="flex justify-center">
                         <button 
                         onClick = {
@@ -52,6 +57,7 @@ const Search = ({data, setData, filteredData, setFilteredData}) => {
                                 e.preventDefault();
                                 setFilteredData(data);
                                 setSearchClicked(false);
+                                setSearchQuery("");
                             }
                         }
                         className="text-center pr-5 pl-5 pt-2 pb-2 rounded-full text-orange-600 font-bold
