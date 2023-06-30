@@ -4,7 +4,6 @@ import React, { use } from "react";
 import SingleArticle from "./SingleArticle";
 import { getPosts, getRecentPosts } from "../services";
 import { useState, useEffect } from "react";
-import { get } from "http";
 
 // getting data from api adnstoring it to show it in the articles section by fetch
 
@@ -19,11 +18,19 @@ const Articles = ({
     numberOfPages,
     offset,
     currentPageNormal,
+    categoryArray,
+    setCategoryArray,
+    catCurrentpage,
+    setCatCurrentPage,
+    catNumberOfPages,
+    setCatNumberOfPages,
+    catOffset,
+    setCatOffset,
 }) => {
 
-
+    
     useEffect(() => {
-        getPosts(articlesPerPage, offset).then((data) => {
+        getPosts(articlesPerPage, offset, []).then((data) => {
             setData(data);
             setFilteredData(data);
         });
@@ -39,9 +46,17 @@ const Articles = ({
 
     // showing page numers at bottom +-3 from current page
     const pageNumbers = [];
-    for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+    if(categoryArray.length==0){for (let i = currentPage - 1; i <= currentPage + 1; i++) {
         if (i > 0 && i <= numberOfPages) {
             pageNumbers.push(i);
+        }
+    }}else{
+        console.log(catCurrentpage,"eeelseeeeeeeeee");
+        console.log(catNumberOfPages,"catNumberOfPages");
+        for (let i = catCurrentpage - 1; i <= catCurrentpage + 1; i++) {
+            if (i > 0 && i <= catNumberOfPages) {
+                pageNumbers.push(i);
+            }
         }
     }
     return (
@@ -69,7 +84,7 @@ const Articles = ({
             </div>
 
             {/* showing page numbers at bottom */}
-           { filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
+           { categoryArray.length==0 && filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
                 <div className="flex gap-2">
                     {pageNumbers.map((number) => {
                         console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
@@ -83,8 +98,9 @@ const Articles = ({
                                 onClick={() => {
                                     setCurrentPage(number);
                                     currentPageNormal = number;
+                                    // setCatCurrentPage(number);
                                     getPosts(articlesPerPage, 
-                                        (number - 1) * articlesPerPage
+                                        (number - 1) * articlesPerPage,[]
                                         ).then(
                                         (data) => {
                                             setData(data);
@@ -99,7 +115,43 @@ const Articles = ({
                     })}
                 </div>
             </div>}
+            
+            { categoryArray.length>0 && filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
+                <div className="flex gap-2">
+                    {pageNumbers.map((number) => {
+                        console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
+                        return (
+                            <div
+                                className={`${
+                                    number === catCurrentpage
+                                        ? "bg-blue-500 text-white"
+                                        : "bg-white text-blue-500"
+                                } w-10 h-10 flex justify-center items-center rounded-full cursor-pointer`}
+                                onClick={() => {
+                                    setCatCurrentPage(number);
+                                    currentPageNormal = number;
+                                    setCatCurrentPage(number);
+                                    getPosts(articlesPerPage, 
+                                        (number - 1) * articlesPerPage,categoryArray
+                                        ).then(
+                                        (data) => {
+                                            console.log(data,"mydata");
+                                            setData(data);
+                                            setFilteredData(data);
+                                        }
+                                    );
+                                }}
+                            >
+                                {number}
+                            </div>
+                        );
+                    })}
+                    {console.log(filteredData, "filteredData //////////////////////")}
+                </div>
+            </div>}
+            
         </div>
+
     );
 };
 

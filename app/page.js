@@ -9,17 +9,20 @@ import { getTotalPosts } from "./services";
 export default function Home() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
-
+  const [categoryArray, setCategoryArray] = useState([]);
   // applying pagination 
   const [totalPosts, setTotalPosts] = useState(0);
+  const[catCurrentpage, setCatCurrentPage] = useState(1);
+  const[catNumberOfPages, setCatNumberOfPages] = useState(0);
+  const[catOffset, setCatOffset] = useState(0);
   useEffect(() => {
-    getTotalPosts().then((res) => {
+    getTotalPosts([]).then((res) => {
       let ttlPosts 
       ttlPosts = res;
       setTotalPosts(ttlPosts);
     });
   }, []);
-  const articlesPerPage = 3;
+  const articlesPerPage = 2;
   const currentPageNormal = 1;
   const [currentPage, setCurrentPage] = useState(1);
  
@@ -58,6 +61,15 @@ export default function Home() {
           numberOfPages={numberOfPages}
           offset={offset}
           currentPageNormal={currentPageNormal}
+          categoryArray={categoryArray}
+          setCategoryArray={setCategoryArray}
+          catCurrentpage={catCurrentpage}
+          setCatCurrentPage={setCatCurrentPage}
+          catNumberOfPages={catNumberOfPages}
+          setCatNumberOfPages={setCatNumberOfPages}
+          catOffset={catOffset}
+          setCatOffset={setCatOffset}
+          
             />
         </div>
 
@@ -67,6 +79,20 @@ export default function Home() {
           setData={setData}
           filteredData={filteredData}
           setFilteredData={setFilteredData}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          articlesPerPage={articlesPerPage}
+          numberOfPages={numberOfPages}
+          offset={offset}
+          // currentPageNormal={currentPageNormal}
+          categoryArray={categoryArray}
+          setCategoryArray={setCategoryArray}
+          catCurrentpage={catCurrentpage}
+          setCatCurrentPage={setCatCurrentPage}
+          catNumberOfPages={catNumberOfPages}
+          setCatNumberOfPages={setCatNumberOfPages}
+          catOffset={catOffset}
+          setCatOffset={setCatOffset}
            />
           <hr/>
           <RelatedOrRecents />
