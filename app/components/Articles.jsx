@@ -69,7 +69,7 @@ const Articles = ({
             </div>
 
             {/* showing page numbers at bottom */}
-            <div className="flex justify-center items-center mt-10 mb-10">
+           { filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
                 <div className="flex gap-2">
                     {pageNumbers.map((number) => {
                         console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
@@ -98,7 +98,7 @@ const Articles = ({
                         );
                     })}
                 </div>
-            </div>
+            </div>}
         </div>
     );
 };
