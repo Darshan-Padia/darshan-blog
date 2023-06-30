@@ -20,10 +20,17 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className={`w-fit  right-5 top-2 p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-slate-200 dark:bg-[#212933]`}
+      className={`w-fit  right-5 top-2 p-2 rounded-md hover:scale-110 active:scale-100 duration-200  dark:bg-[#212933]`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "light" ? "Dark" : "Light"}
+      {/* {theme === "light" ? "Dark" : "Light"} */}
+      {
+        theme === "light" ? (
+          <img className="h-8 w-8" src="/sun-color-icon.svg" alt="light" />
+        ) : (
+          <img className="h-8 w-8"  src="/moon_icon.svg" alt="dark" />
+        )
+      }
     </button>
   );
 };

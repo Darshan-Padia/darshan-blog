@@ -46,13 +46,16 @@ export const ArticleDetail = ({ post }) => {
                 );
             case "image":
                 return (
-                    <img
-                        key={index}
-                        alt={obj.title}
-                        height={obj.height}
-                        width={obj.width}
-                        src={obj.src}
-                    />
+                    <div className="flex justify-center items-center">
+                        <img
+                            className=""
+                            key={index}
+                            alt={obj.title}
+                            height={obj.height}
+                            width={obj.width}
+                            src={obj.src}
+                        />
+                    </div>
                 );
             default:
                 return modifiedText;
@@ -94,10 +97,10 @@ export const ArticleDetail = ({ post }) => {
                     </div>
                 </div>
                 {/* <div className="text-lg"> */}
-                    {/* title of article  */}
-                    <div className=" text-center hover:scale-101 transition-all text-3xl font-semibold tracking-wider overflow-x-hidden  ">
-                        {post.titile}
-                    </div>
+                {/* title of article  */}
+                <div className=" text-center hover:scale-101 transition-all text-3xl font-semibold tracking-wider overflow-x-hidden  ">
+                    {post.titile}
+                </div>
                 {/* </div> */}
             </div>
 

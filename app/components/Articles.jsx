@@ -8,27 +8,48 @@ import { get } from "http";
 
 // getting data from api adnstoring it to show it in the articles section by fetch
 
-const Articles = ({data,setData,filteredData,setFilteredData}) => {
- 
+const Articles = ({
+    data,
+    setData,
+    filteredData,
+    setFilteredData,
+    currentPage,
+    setCurrentPage,
+    articlesPerPage,
+    numberOfPages,
+    offset,
+    currentPageNormal,
+}) => {
+
 
     useEffect(() => {
-        getPosts().then((data) => {
+        getPosts(articlesPerPage, offset).then((data) => {
             setData(data);
             setFilteredData(data);
         });
     }, []);
 
     useEffect(() => {
-        console.log(data,'useeffect  data');
+        offset = (currentPage - 1) * articlesPerPage;
+    }, [currentPage]);
+
+    useEffect(() => {
+        console.log(data, "useeffect  data");
     }, [data]);
 
+    // showing page numers at bottom +-3 from current page
+    const pageNumbers = [];
+    for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+        if (i > 0 && i <= numberOfPages) {
+            pageNumbers.push(i);
+        }
+    }
     return (
-        <div className="mt-10">
+        <div className="sm:w-full mt-10">
             <h1 className="text-3xl font-sans light:text-gray-900">Articles</h1>
             {/* {console.log(data)} */}
             {/* div that dynamicaly wil l show the added articles */}
             <div className="mt-5">
-
                 {/* returning 'No articles Found' if articles are not found */}
 
                 {filteredData.length === 0 && (
@@ -36,7 +57,6 @@ const Articles = ({data,setData,filteredData,setFilteredData}) => {
                         No articles found
                     </div>
                 )}
-
 
                 {filteredData.map((article) => {
                     console.log(article.node);
@@ -46,6 +66,38 @@ const Articles = ({data,setData,filteredData,setFilteredData}) => {
                         </div>
                     );
                 })}
+            </div>
+
+            {/* showing page numbers at bottom */}
+            <div className="flex justify-center items-center mt-10 mb-10">
+                <div className="flex gap-2">
+                    {pageNumbers.map((number) => {
+                        console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
+                        return (
+                            <div
+                                className={`${
+                                    number === currentPage
+                                        ? "bg-blue-500 text-white"
+                                        : "bg-white text-blue-500"
+                                } w-10 h-10 flex justify-center items-center rounded-full cursor-pointer`}
+                                onClick={() => {
+                                    setCurrentPage(number);
+                                    currentPageNormal = number;
+                                    getPosts(articlesPerPage, 
+                                        (number - 1) * articlesPerPage
+                                        ).then(
+                                        (data) => {
+                                            setData(data);
+                                            setFilteredData(data);
+                                        }
+                                    );
+                                }}
+                            >
+                                {number}
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );

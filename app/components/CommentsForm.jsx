@@ -55,7 +55,7 @@ export const CommentsForm = () => {
     };
 
     return (
-        <div className=" dark:bg-slate-900  light: bg-slate-200 p-8 rounded-lg">
+        <div className=" dark:bg-slate-900 w-full light: bg-slate-200 p-8 rounded-lg">
             <h1 className="mb-4 ml-1">
                 <span className="  text-2xl  font-bold">Leave a comment</span>
             </h1>

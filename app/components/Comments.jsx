@@ -16,7 +16,8 @@ export const Comments = ({ slug }) => {
     }, []);
 
     return (
-        <div className=" bg-slate-200 dark:bg-slate-900 shadow-lg rounded-lg p-8 pb-12 mb-8">
+        <div className=" bg-slate-200 w-full
+         dark:bg-slate-900 shadow-lg rounded-lg p-8 pb-12 mb-8">
             <h3 className="text-xl font-semibold mb-8 border-b pb-4">
                 {comments.length}
                 {' '}

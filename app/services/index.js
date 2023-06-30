@@ -1,13 +1,35 @@
+import exp from "constants";
 import { request, gql } from "graphql-request";
 import { get } from "http";
 import useSWR from 'swr'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPCMS_ENDPOINT;
 
-export const getPosts = async () => {
+// wrting query to know the total number of posts
+export const getTotalPosts = async () => {
   const query = gql`
-    query MyQuery() {
+    query ToatalPosts {
       postsConnection {
+        aggregate {
+          count
+        }
+      }
+    }
+  `;
+  const results = await request(graphqlAPI, query);
+  console.log(results.postsConnection.aggregate.count, 'postConnection counts');
+  return results.postsConnection.aggregate.count;
+};
+
+
+export const getPosts = async (articlesPerPage  , offset) => {
+  const query = gql`
+    query MyQuery($articlesPerPage: Int!, $offset: Int!) {
+      postsConnection(
+        first: $articlesPerPage
+        skip: $offset
+        orderBy: createdAt_DESC
+      ) {
         edges {
           node {
             author {
@@ -33,8 +55,10 @@ export const getPosts = async () => {
       }
     }
   `;
-  const results = await request(graphqlAPI, query);
+
+  const results = await request(graphqlAPI, query, { articlesPerPage, offset });
   return results.postsConnection.edges;
+
 };
 
 export const getPostDetail = async (slug) => {
@@ -98,6 +122,12 @@ export const getSimilarPosts = async (categories, slug) => {
         where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
         last: 3
       ) {
+        author{
+          name
+          photo{
+            url
+          }
+        }
         titile
         featuredImage {
           url

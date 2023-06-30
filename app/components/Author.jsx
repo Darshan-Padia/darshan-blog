@@ -2,7 +2,7 @@ import React from "react";
 
 export const Author = ({ author }) => {
     return (
-        <div className="relative"  >
+        <div className="relative w-full"  >
           <div className=" absolute z-10 w-full flex justify-center align-middle items-center" >
             {/* <div className="absolute "> */}
                 {/* image of author */}

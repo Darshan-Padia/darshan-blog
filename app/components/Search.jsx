@@ -25,7 +25,7 @@ const Search = ({data, setData, filteredData, setFilteredData}) => {
             <form>
                 <div className="  flex justify-center flex-col sm:flex-row gap-5">
                     <input
-                        className=" m-auto w-4/5 p-1 outline-none border-2 border-gray-300 lg:pr-96 md:pr-36 sm:pr-36 rounded-md sm:w-4/5 md:w-full lg:w-full"
+                        className=" m-auto w-4/5 p-1 outline-none border-2 border-gray-300   rounded-md sm:w-4/5 md:w-full lg:w-full"
                         type="text"
                         placeholder="Search Globally"
                         value={searchQuery}
@@ -37,7 +37,7 @@ const Search = ({data, setData, filteredData, setFilteredData}) => {
                     <button
                         onClick={handleSearch}
                         type="submit"
-                        className=" m-auto w-1/4 text-center pr-5 pl-5 pt-2 pb-2 rounded-full text-orange-600 font-bold
+                        className=" rounded-md p-2 m-auto  text-center sm:pr-5 sm:pl-5 sm:pt-2 sm:pb-2 sm:rounded-full text-orange-600 font-bold
                       border-red-300 border-2 hover:bg-slate-100 "
                     >
                         Search

@@ -6,12 +6,12 @@ const Header = () => {
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div
-                className="flex w-full justify-between items-center pl-10 pr-10 pt-2 pb-2
+                className=" pl-1 pr-1 flex w-full justify-between items-center sm:pl-10 sm:pr-10 pt-2 pb-2
                         bg-purple-500 text-white-500
                         dark:bg-gray-800 dark:text-white-500
                         sticky top-0 h-14
-
                         z-50
+
                         "
             >
                 <div>
@@ -36,12 +36,12 @@ const Header = () => {
                             About us
                         </p>
                     </Link>
-                    <button
+                    {/* <button
                         className="bg-blue-500 hover:bg-blue-700
                  text-white font-bold py-2 px-4 rounded-full"
                     >
                         Get Started
-                    </button>
+                    </button> */}
                     <ThemeSwitcher />
                 </div>
             </div>
