@@ -57,6 +57,15 @@ export const ArticleDetail = ({ post }) => {
                         />
                     </div>
                 );
+                // rendering bullet points
+            case "list-item":
+                return (
+                    <li key={index} className="list-disc ml-4">
+                        {modifiedText.map((item, i) => (
+                            <React.Fragment key={i}>{item}</React.Fragment>
+                        ))}
+                    </li>
+                );
             default:
                 return modifiedText;
         }
