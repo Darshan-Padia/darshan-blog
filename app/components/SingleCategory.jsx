@@ -98,7 +98,7 @@ const SingleCategory = (props) => {
                     onClick={showArticleCategoryWise}
                     className={`
                     ${
-                        catArray.includes(props.category.slug) ? 'bg-red-200 hover:bg-red-300' : 'bg-slate-400 hover:bg-slate-500'
+                        catArray.includes(props.category.slug) ? 'bg-red-400 hover:bg-red-300' : 'bg-slate-400 hover:bg-slate-500'
                     }
                     text-lg cursor-pointer  p-2 py-1 rounded-lg font-semibold `}
                 >
