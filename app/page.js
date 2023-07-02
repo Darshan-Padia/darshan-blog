@@ -39,7 +39,7 @@ export default function Home() {
     md:pl-16 md:pr-16
     sm:pl-12 sm:pr-12
     lg:pl-12 lg:pr-12
-    mb-5
+    
     "
     // style={{backgroundImage: "url('/bg2.jpg')"}}
     >

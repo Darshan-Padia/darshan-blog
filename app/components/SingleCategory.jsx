@@ -61,6 +61,15 @@ const SingleCategory = (props) => {
           console.log(data, "data -------------------____");
             // catTotalPostss.catTotPos = data;
             ttl = data;
+            getPosts(props.articlesPerPage, 0, catArray).then((data) => {
+                console.log(data, "data________________________________");
+                console.log(catArray, "catArray________________________________");
+                props.setCatNumberOfPages (Math.ceil(
+                  ttl / props.articlesPerPage)
+                );
+                  props.setFilteredData(data);
+              }
+              );
           });
           console.log(ttl,"catTotalPostss.catTotPos +++++++++++++++++++++++++++++++");
         // const filteredData = [];
@@ -69,15 +78,7 @@ const SingleCategory = (props) => {
           const offs = (props.catCurrentpage - 1) * props.articlesPerPage;
          
           console.log(offs,'oooooooooooooofffffffffffffffffssssssssssssss');
-          getPosts(props.articlesPerPage, 0, catArray).then((data) => {
-          console.log(data, "data________________________________");
-          console.log(catArray, "catArray________________________________");
-          props.setCatNumberOfPages (Math.ceil(
-            ttl / props.articlesPerPage)
-          );
-            props.setFilteredData(data);
-        }
-        );
+          
 
     };
 
