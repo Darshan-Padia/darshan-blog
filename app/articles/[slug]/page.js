@@ -47,7 +47,7 @@ const page = () => {
             "
             >
                 {/* <div className=" flex  flex-col max-w-4xl sm:flex-row md:flex-row lg:flex-row  w-full gap-28 justify-between "> */}
-                    <div className="searchAndArticles  lg:max-w-none  w-full sm:max-w-xl md:max-w-xl  flex justify-center items-center flex-col gap-3 ">
+                    <div className="searchAndArticles  lg:max-w-4xl w-full sm:max-w-xl md:max-w-xl  flex justify-center items-center flex-col gap-3 ">
                         <ArticleDetail post={post} />
                         <hr />
                         <Author author={post.author} />
