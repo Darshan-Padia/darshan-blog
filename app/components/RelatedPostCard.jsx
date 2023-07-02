@@ -6,7 +6,7 @@ import Link from "next/link";
 const RelatedPostCard = ({ post }) => (
     <div className="relative h-72">
       
-        {/* {console.log(post,'related post card')} */}
+        {/* {//console.log(post,'related post card')} */}
         <div
             // className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"
             className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md  w-full h-72"

@@ -74,7 +74,7 @@ export const ArticleDetail = ({ post }) => {
     return (
         <div className="flex flex-col gap-1 ">
             <div className=" shadow-lg dark:bg-slate-900  bg-slate-100 rounded-lg lg:p-8 px-2 py-2 mb-2">
-                {console.log(post)}
+                {/* {console.log(post)} */}
                 <div className="flex gap-1 items-center mt-1 mb-1 ml-4">
                     <img
                         src={post.author.photo.url}

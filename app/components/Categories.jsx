@@ -29,7 +29,7 @@ const Categories = ({
         });
     }, []);
 
-    console.log("cate", categories);
+    //console.log("cate", categories);
 
     return (
         <div>
@@ -38,9 +38,9 @@ const Categories = ({
             </div>
             <div className="w-full flex flex-wrap gap-3 flex-row max-h-52	overflow-auto">
                 {
-                    // {console.log(categories)}
+                    // {//console.log(categories)}
                     categories.map((category, ind) => {
-                        console.log(category, "cate", ind);
+                        //console.log(category, "cate", ind);
                         return (
                             <SingleCategory
                                 data={data}

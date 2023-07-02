@@ -13,14 +13,14 @@ const Search = ({data, setData, filteredData, setFilteredData}) => {
         }else{
             setSearchClicked(true);
         }
-        console.log(searchQuery);
+        //console.log(searchQuery);
         let newFilteredData = data.filter((article) => {
             return (
                 article.node.titile.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 article.node.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
             );
         });
-        console.log(newFilteredData,'newFilteredData');
+        //console.log(newFilteredData,'newFilteredData');
         setFilteredData(newFilteredData);
     }
 

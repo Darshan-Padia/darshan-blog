@@ -41,7 +41,7 @@ const Articles = ({
     }, [currentPage]);
 
     useEffect(() => {
-        console.log(data, "useeffect  data");
+        //console.log(data, "useeffect  data");
     }, [data]);
 
     // showing page numers at bottom +-3 from current page
@@ -51,8 +51,8 @@ const Articles = ({
             pageNumbers.push(i);
         }
     }}else{
-        console.log(catCurrentpage,"eeelseeeeeeeeee");
-        console.log(catNumberOfPages,"catNumberOfPages");
+        //console.log(catCurrentpage,"eeelseeeeeeeeee");
+        //console.log(catNumberOfPages,"catNumberOfPages");
         for (let i = catCurrentpage - 1; i <= catCurrentpage + 1; i++) {
             if (i > 0 && i <= catNumberOfPages) {
                 pageNumbers.push(i);
@@ -62,7 +62,7 @@ const Articles = ({
     return (
         <div className="sm:w-full mt-10">
             <h1 className="text-3xl font-sans light:text-gray-900">Articles</h1>
-            {/* {console.log(data)} */}
+            {/* {//console.log(data)} */}
             {/* div that dynamicaly wil l show the added articles */}
             <div className="mt-5">
                 {/* returning 'No articles Found' if articles are not found */}
@@ -74,7 +74,7 @@ const Articles = ({
                 )}
 
                 {filteredData.map((article) => {
-                    console.log(article.node);
+                    //console.log(article.node);
                     return (
                         <div>
                             <SingleArticle article={article.node} />
@@ -87,7 +87,7 @@ const Articles = ({
            { categoryArray.length==0 && filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
                 <div className="flex gap-2">
                     {pageNumbers.map((number) => {
-                        console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
+                        //console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
                         return (
                             <div
                                 className={`${
@@ -119,7 +119,7 @@ const Articles = ({
             { categoryArray.length>0 && filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
                 <div className="flex gap-2">
                     {pageNumbers.map((number) => {
-                        console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
+                        //console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
                         return (
                             <div
                                 className={`${
@@ -135,7 +135,7 @@ const Articles = ({
                                         (number - 1) * articlesPerPage,categoryArray
                                         ).then(
                                         (data) => {
-                                            console.log(data,"mydata");
+                                            //console.log(data,"mydata");
                                             setData(data);
                                             setFilteredData(data);
                                         }
@@ -146,7 +146,7 @@ const Articles = ({
                             </div>
                         );
                     })}
-                    {console.log(filteredData, "filteredData //////////////////////")}
+                    {/* {console.log(filteredData, "filteredData //////////////////////")} */}
                 </div>
             </div>}
             

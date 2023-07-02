@@ -9,7 +9,7 @@ export const Comments = ({ slug }) => {
 
     useEffect(() => {
         // const slug = window.location.pathname.split('/')[2]
-        console.log(slug);
+        //console.log(slug);
         getComments(slug)
             .then((res) => setComments(res))
             .catch((err) => console.log(err));

@@ -9,10 +9,10 @@ export const config = {
 const comments = async(req, res) => {
    
     
-    console.log('req.body');
-    console.log(req);
-    console.log('res');
-    console.log(res);
+    //console.log('req.body');
+    //console.log(req);
+    //console.log('res');
+    //console.log(res);
 
     const { name, email, comment, slug } = req.body;
 
@@ -49,10 +49,10 @@ const comments = async(req, res) => {
         
     graphQLClient.request(query, req.body).then((data) => {
         // checking if data is tehre or any error and debugging if not returning data
-        console.log(data);
+        //console.log(data);
         return res.status(200).json(data);
     }).catch((error) => {
-        console.log(error);
+        //console.log(error);
         return res.status(500).json(error);
     });
     //
@@ -63,7 +63,7 @@ const comments = async(req, res) => {
 }
 
 // export default async function POST(req){
-//     console.log(req);
+//     //console.log(req);
 // }
 export default comments;
 

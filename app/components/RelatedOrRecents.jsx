@@ -6,7 +6,7 @@ import Articles from "./Articles";
 import { getRecentPosts, getSimilarPosts } from "../services";
 
 const RelatedOrRecents = ({categories , slug}) => {
-  console.log(categories, slug);
+  //console.log(categories, slug);
  const [data, setData] = useState([]);
 
  useEffect(() => {
@@ -20,7 +20,7 @@ const RelatedOrRecents = ({categories , slug}) => {
     });
   }
  },[slug])
-//  console.log(data);
+//  //console.log(data);
   return (
     <div>
       <div className="text-2xl font-semibold mb-2 font-sans ">

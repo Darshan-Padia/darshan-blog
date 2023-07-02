@@ -28,7 +28,7 @@ export default function Home() {
   const currentPageNormal = 1;
   const [currentPage, setCurrentPage] = useState(1);
  
-  console.log(totalPosts, 'total posts');
+  //console.log(totalPosts, 'total posts');
   const numberOfPages = Math.ceil( totalPosts / articlesPerPage);
   const offset = (currentPage - 1) * articlesPerPage;
 

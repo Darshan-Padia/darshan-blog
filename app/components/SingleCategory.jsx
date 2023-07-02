@@ -11,19 +11,19 @@ const SingleCategory = (props) => {
 
     //     if(catArray.includes(props.category.name)){
     //       catArray.splice(catArray.indexOf(props.category.name),1)
-    //       console.log("in if");
+    //       ////console.log("in if");
     //     }
     //     else{
     //       catArray.push(props.category.name)
-    //       console.log(catArray,"ot catArray");
-    //       console.log("in else");
+    //       ////console.log(catArray,"ot catArray");
+    //       ////console.log("in else");
     //     }
     //     if(catArray.length===0){
     //       props.setFilteredData(props.data)
 
     //     }else{
 
-    //       console.log(catArray,"catArray");
+    //       ////console.log(catArray,"catArray");
     //       const filteredData =[]
     //       props.data.map((article) => {
     //         article.node.categories.map((category) => {
@@ -44,26 +44,26 @@ const SingleCategory = (props) => {
         if (catArray.includes(props.category.slug)) {
             catArray.splice(catArray.indexOf(props.category.slug), 1);
             props.setCategoryArray(catArray);
-            console.log("in if");
+            ////console.log("in if");
         } else {
             catArray.push(props.category.slug);
-            console.log(catArray, "ot catArray");
-            console.log("in else");
+            ////console.log(catArray, "ot catArray");
+            ////console.log("in else");
             props.setCategoryArray(catArray);
         }
 
-        console.log(catArray, "catArray");
+        ////console.log(catArray, "catArray");
         
         // let catTotalPostss ={catTotPos :0} ;
         
         var ttl = 0;
         getTotalPosts(catArray).then((data) => {
-          console.log(data, "data -------------------____");
+          ////console.log(data, "data -------------------____");
             // catTotalPostss.catTotPos = data;
             ttl = data;
             getPosts(props.articlesPerPage, 0, catArray).then((data) => {
-                console.log(data, "data________________________________");
-                console.log(catArray, "catArray________________________________");
+                ////console.log(data, "data________________________________");
+                ////console.log(catArray, "catArray________________________________");
                 props.setCatNumberOfPages (Math.ceil(
                   ttl / props.articlesPerPage)
                 );
@@ -71,13 +71,13 @@ const SingleCategory = (props) => {
               }
               );
           });
-          console.log(ttl,"catTotalPostss.catTotPos +++++++++++++++++++++++++++++++");
+          ////console.log(ttl,"catTotalPostss.catTotPos +++++++++++++++++++++++++++++++");
         // const filteredData = [];
           props.setCatOffset((props.catCurrentPage - 1) * props.articlesPerPage);
           props.setCatCurrentPage(1);
           const offs = (props.catCurrentpage - 1) * props.articlesPerPage;
          
-          console.log(offs,'oooooooooooooofffffffffffffffffssssssssssssss');
+          ////console.log(offs,'oooooooooooooofffffffffffffffffssssssssssssss');
           
 
     };
