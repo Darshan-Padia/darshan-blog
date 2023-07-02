@@ -12,12 +12,7 @@ const Articles = ({
     setData,
     filteredData,
     setFilteredData,
-    currentPage,
-    setCurrentPage,
     articlesPerPage,
-    numberOfPages,
-    offset,
-    currentPageNormal,
     categoryArray,
     setCategoryArray,
     catCurrentpage,
@@ -26,19 +21,20 @@ const Articles = ({
     setCatNumberOfPages,
     catOffset,
     setCatOffset,
+    catArray
 }) => {
 
     
     useEffect(() => {
-        getPosts(articlesPerPage, offset, []).then((data) => {
+        getPosts(articlesPerPage, (catCurrentpage - 1) * articlesPerPage, []).then((data) => {
             setData(data);
             setFilteredData(data);
         });
     }, []);
 
-    useEffect(() => {
-        offset = (currentPage - 1) * articlesPerPage;
-    }, [currentPage]);
+    // useEffect(() => {
+    //     offset = (currentPage - 1) * articlesPerPage;
+    // }, [currentPage]);
 
     useEffect(() => {
         //console.log(data, "useeffect  data");
@@ -46,19 +42,21 @@ const Articles = ({
 
     // showing page numers at bottom +-3 from current page
     const pageNumbers = [];
-    if(categoryArray.length==0){for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-        if (i > 0 && i <= numberOfPages) {
+    // if(catArray.length==0)
+    for (let i = catCurrentpage - 1; i <= catCurrentpage + 1; i++) {
+        if (i > 0 && i <= catNumberOfPages) {
             pageNumbers.push(i);
         }
-    }}else{
-        //console.log(catCurrentpage,"eeelseeeeeeeeee");
-        //console.log(catNumberOfPages,"catNumberOfPages");
-        for (let i = catCurrentpage - 1; i <= catCurrentpage + 1; i++) {
-            if (i > 0 && i <= catNumberOfPages) {
-                pageNumbers.push(i);
-            }
-        }
     }
+    // else{
+    //     //console.log(catCurrentpage,"eeelseeeeeeeeee");
+    //     //console.log(catNumberOfPages,"catNumberOfPages");
+    //     for (let i = catCurrentpage - 1; i <= catCurrentpage + 1; i++) {
+    //         if (i > 0 && i <= catNumberOfPages) {
+    //             pageNumbers.push(i);
+    //         }
+    //     }
+    // }
     return (
         <div className="sm:w-full mt-10">
             <h1 className="text-3xl font-sans light:text-gray-900">Articles</h1>
@@ -84,20 +82,20 @@ const Articles = ({
             </div>
 
             {/* showing page numbers at bottom */}
-           { categoryArray.length==0 && filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
+           { filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
                 <div className="flex gap-2">
                     {pageNumbers.map((number) => {
                         //console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
                         return (
                             <div
                                 className={`${
-                                    number === currentPage
+                                    number === catCurrentpage
                                         ? "bg-blue-500 text-white"
                                         : "bg-white text-blue-500"
                                 } w-10 h-10 flex justify-center items-center rounded-full cursor-pointer`}
                                 onClick={() => {
-                                    setCurrentPage(number);
-                                    currentPageNormal = number;
+                                    setCatCurrentPage(number);
+                                    // currentPageNormal = number;
                                     // setCatCurrentPage(number);
                                     getPosts(articlesPerPage, 
                                         (number - 1) * articlesPerPage,[]
@@ -116,7 +114,7 @@ const Articles = ({
                 </div>
             </div>}
             
-            { categoryArray.length>0 && filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
+            {/* { catArray.length>0 && filteredData.length>0 && <div className="flex justify-center items-center mt-10 mb-10">
                 <div className="flex gap-2">
                     {pageNumbers.map((number) => {
                         //console.log(number, "numberrrrrrrrrrrrrrrrrrrr");
@@ -132,7 +130,7 @@ const Articles = ({
                                     currentPageNormal = number;
                                     setCatCurrentPage(number);
                                     getPosts(articlesPerPage, 
-                                        (number - 1) * articlesPerPage,categoryArray
+                                        (number - 1) * articlesPerPage,catArray
                                         ).then(
                                         (data) => {
                                             //console.log(data,"mydata");
@@ -146,9 +144,9 @@ const Articles = ({
                             </div>
                         );
                     })}
-                    {/* {console.log(filteredData, "filteredData //////////////////////")} */}
+                    {//console.log(filteredData, "filteredData //////////////////////")}
                 </div>
-            </div>}
+            </div>} */}
             
         </div>
 

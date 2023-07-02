@@ -7,29 +7,34 @@ import RelatedOrRecents from "./components/RelatedOrRecents";
 import { useState , useEffect } from "react";
 import { getTotalPosts } from "./services";
 import { GoogleAdSense } from "nextjs-google-adsense";
+let catArray = [];
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
-  const [categoryArray, setCategoryArray] = useState([]);
+  //console.log(catArray, 'catArray page');
+  const [categoryArray, setCategoryArray] = useState(catArray);
   // applying pagination 
   const [totalPosts, setTotalPosts] = useState(0);
   const[catCurrentpage, setCatCurrentPage] = useState(1);
   const[catNumberOfPages, setCatNumberOfPages] = useState(0);
   const[catOffset, setCatOffset] = useState(0);
+  const articlesPerPage = 2;
   useEffect(() => {
-    getTotalPosts([]).then((res) => {
-      let ttlPosts 
+    let ttlPosts 
+    //console.log(categoryArray, 'categoryArray now');
+    getTotalPosts(categoryArray).then((res) => {
       ttlPosts = res;
       setTotalPosts(ttlPosts);
+      setCatNumberOfPages( Math.ceil( ttlPosts / articlesPerPage))
     });
   }, []);
-  const articlesPerPage = 2;
   const currentPageNormal = 1;
   const [currentPage, setCurrentPage] = useState(1);
- 
+ //console.log(categoryArray, 'categoryArrayyyyy');
   //console.log(totalPosts, 'total posts');
   const numberOfPages = Math.ceil( totalPosts / articlesPerPage);
+  // useEffect(() => {}, [ttlPosts]);
   const offset = (currentPage - 1) * articlesPerPage;
 
   
@@ -73,6 +78,10 @@ export default function Home() {
           setCatNumberOfPages={setCatNumberOfPages}
           catOffset={catOffset}
           setCatOffset={setCatOffset}
+          catArray={catArray}
+          totalPosts={totalPosts}
+          setTotalPosts={setTotalPosts}
+
           
             />
         </div>
@@ -97,6 +106,10 @@ export default function Home() {
           setCatNumberOfPages={setCatNumberOfPages}
           catOffset={catOffset}
           setCatOffset={setCatOffset}
+          catArray={catArray}
+          totalPosts={totalPosts}
+          setTotalPosts={setTotalPosts}
+
            />
           <hr/>
           <RelatedOrRecents />

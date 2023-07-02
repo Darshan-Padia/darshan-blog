@@ -21,6 +21,9 @@ const Categories = ({
     setCatNumberOfPages,
     catOffset,
     setCatOffset,
+    catArray,
+    totalPosts,
+    setTotalPosts
 }) => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
@@ -61,6 +64,9 @@ const Categories = ({
                                 setCatNumberOfPages={setCatNumberOfPages}
                                 catOffset={catOffset}
                                 setCatOffset={setCatOffset}
+                                catArray={catArray}
+                                totalPosts={totalPosts}
+                                setTotalPosts={setTotalPosts}
                             />
                         );
                     })

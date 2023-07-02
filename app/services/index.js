@@ -20,7 +20,7 @@ export const getTotalPosts = async (categories) => {
       }
     `;
     const results = await request(graphqlAPI, query, { categories });
-    //console.log(results.postsConnection.aggregate.count, 'postConnection counts');
+    ////console.log(results.postsConnection.aggregate.count, 'postConnection counts');
     return results.postsConnection.aggregate.count;
   }else{
     const query = gql`
@@ -33,7 +33,7 @@ export const getTotalPosts = async (categories) => {
       }
     `;
     const results = await request(graphqlAPI, query);
-    //console.log(results.postsConnection.aggregate.count, 'postConnection counts');
+    ////console.log(results.postsConnection.aggregate.count, 'postConnection counts');
     return results.postsConnection.aggregate.count;
   }
 
@@ -48,7 +48,7 @@ export const getTotalPosts = async (categories) => {
     //     }
     // `;
     // const results = await request(graphqlAPI, query);
-    // //console.log(
+    // ////console.log(
     //     results.postsConnection.aggregate.count,
     //     "postConnection counts"
     // );
@@ -58,8 +58,8 @@ export const getTotalPosts = async (categories) => {
 export const getPosts = async (articlesPerPage, offset, categories) => {
     // getting posts categorywise and if there are no categories selected then getting all posts
     if (categories.length > 0) {
-      // //console.log(categories,'in getPostssssss-------------sssss');
-      //console.log(articlesPerPage, offset, categories,'in getPostssssss-------------sssss');
+      // ////console.log(categories,'in getPostssssss-------------sssss');
+      ////console.log(articlesPerPage, offset, categories,'in getPostssssss-------------sssss');
         const query = gql`
             query MyQuery(
                 $articlesPerPage: Int!
@@ -243,12 +243,12 @@ export const getCategories = async () => {
 
 export const submitComment = async (obj) => {
     if (Object.keys(obj).length === 0) {
-        //console.log("empty");
+        ////console.log("empty");
         return;
     }
 
-    //console.log("obj");
-    //console.log(obj);
+    ////console.log("obj");
+    ////console.log(obj);
 
     const result = await fetch("/api/comments", {
         method: "POST",
@@ -258,13 +258,13 @@ export const submitComment = async (obj) => {
         body: JSON.stringify(obj),
     });
 
-    // //console.log(result);
+    // ////console.log(result);
     return result.json();
 };
 
 export const getComments = async (slug) => {
-    //console.log("in index getComents");
-    //console.log("slug", slug);
+    ////console.log("in index getComents");
+    ////console.log("slug", slug);
     const query = gql`
         query getcomments($slug: String!) {
             comments(where: { post: { slug: $slug } }) {
@@ -275,10 +275,10 @@ export const getComments = async (slug) => {
         }
     `;
     const slugObj = { slug };
-    // //console.log('slugObj', slugObj);
+    // ////console.log('slugObj', slugObj);
     const results = await request(graphqlAPI, query, slugObj);
 
-    //console.log("results");
-    //console.log(results.comments);
+    ////console.log("results");
+    ////console.log(results.comments);
     return results.comments;
 };
