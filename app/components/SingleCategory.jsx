@@ -96,15 +96,22 @@ const SingleCategory = (props) => {
             {!window.location.pathname.includes("articles") && (
                 <button
                     onClick={showArticleCategoryWise}
-                    className="text-lg cursor-pointer  bg-slate-400 hover:bg-slate-500 p-2 py-1 rounded-lg font-semibold "
+                    className={`
+                    ${
+                        catArray.includes(props.category.slug) ? 'bg-red-200 hover:bg-red-300' : 'bg-slate-400 hover:bg-slate-500'
+                    }
+                    text-lg cursor-pointer  p-2 py-1 rounded-lg font-semibold `}
                 >
                     {props.category.name}
                     {/* if this article is present in category array then showing cross button to make option available to remove it */}
-                    {catArray.includes(props.category.slug) && (
+                    {/* if this article is present in category array then changing background color to make option available to remove it */}
+                    
+
+                    {/* {catArray.includes(props.category.slug) && (
                         <span className="text-red-500 ml-2 cursor-pointer">
                             X
                         </span>
-                    )}
+                    )} */}
                 </button>
             )}
             {
