@@ -81,11 +81,11 @@ export const ArticleDetail = ({ post }) => {
                         alt="Picture of the author"
                         className="rounded-full w-10 h-10 "
                     />
-                    <div className="flex flex-col gap-0">
+                    <div className="flex ml-1 flex-col gap-0 font-semibold">
                         <div className="  text-xl font-sans ">
                             {post.author.name}
                         </div>
-                        <div className="text-sm text-gray-400 m-auto">
+                        <div className="text-sm text-gray-400 ">
                             {moment(post.date).format("MMM Do YY")}
                         </div>
                     </div>
