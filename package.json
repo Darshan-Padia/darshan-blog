@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@eisberg-labs/next-google-adsense": "^4.0.2",
     "autoprefixer": "10.4.14",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -21,6 +22,7 @@
     "moment": "^2.29.4",
     "next": "13.4.7",
     "next-themes": "^0.2.1",
+    "nextjs-google-adsense": "^1.0.0",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",

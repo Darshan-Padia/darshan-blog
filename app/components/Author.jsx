@@ -20,7 +20,7 @@ export const Author = ({ author }) => {
                         {author.name}
                     </h1>
 
-                    <div className="authorDescription text-lg text-gray-600 text-center ">
+                    <div className=" dark:text-white authorDescription text-lg text-gray-600 text-center ">
                         {author.bio}
                     </div>
                 </div>
