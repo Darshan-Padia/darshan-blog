@@ -3,9 +3,7 @@ import { request, gql } from "graphql-request";
 import { get } from "http";
 import useSWR from "swr";
 
-// const graphqlAPI = process.env.NEXT_PUBLIC_GRAPCMS_ENDPOINT;
-const graphqlAPI = NEXT_PUBLIC_GRAPCMS_ENDPOINT;
-
+const graphqlAPI = process.env.NEXT_PUBLIC_GRAPCMS_ENDPOINT;
 
 // wrting query to know the total number of posts
 export const getTotalPosts = async (categories) => {

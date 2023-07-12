@@ -48,9 +48,8 @@ export default function Home() {
     "
     // style={{backgroundImage: "url('/bg2.jpg')"}}
     >
-      {/* <GoogleAdSense publisherId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PUB_ID} /> */}
-      <GoogleAdSense publisherId={NEXT_PUBLIC_GOOGLE_ADSENSE_PUB_ID} />
-
+      <GoogleAdSense publisherId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PUB_ID} />
+      
 
       <div className=" gap-2 flex-col  md:flex-row  lg:gap-7 sm:gap-7  flex w-full md:gap-7 justify-between " >
         <div className=" searchAndArticles lg:max-w-none min-w-full md:min-w-0  w-full sm:max-w-sm md:max-w-xl  flex  flex-col gap-3 " >

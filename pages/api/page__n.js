@@ -16,14 +16,10 @@ export default comments = async(req, res) => {
 
     const { name, email, comment, slug } = req.body;
 
-    //  const graphqlAPI = process.env.NEXT_PUBLIC_GRAPCMS_ENDPOINT;
-     const graphqlAPI =NEXT_PUBLIC_GRAPCMS_ENDPOINT;
-
+     const graphqlAPI = process.env.NEXT_PUBLIC_GRAPCMS_ENDPOINT;
     const graphQLClient = new GraphQLClient(graphqlAPI, {
         headers: {
-            // authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
-            authorization: `Bearer ${GRAPHCMS_TOKEN}`,
-
+            authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
         }
     });
     

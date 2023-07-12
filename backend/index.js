@@ -21,14 +21,10 @@ app.on('listening', function () {
 
 app.post("/api/comments", async (req, res) => {
 // const comments = async (req, res) => {
-    // const graphqlAPI = process.env.NEXT_PUBLIC_GRAPCMS_ENDPOINT;
-    const graphqlAPI = NEXT_PUBLIC_GRAPCMS_ENDPOINT;
-
+    const graphqlAPI = process.env.NEXT_PUBLIC_GRAPCMS_ENDPOINT;
     const graphQLClient = new GraphQLClient(graphqlAPI, {
         headers: {
-            // authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
-            authorization: `Bearer ${GRAPHCMS_TOKEN}`,
-
+            authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
         },
     });
     const query = gql`
