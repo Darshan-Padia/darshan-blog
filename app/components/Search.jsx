@@ -32,7 +32,7 @@ const Search = ({data, setData, filteredData, setFilteredData}) => {
                     <input
                         className=" m-auto w-4/5 p-1 outline-none border-2 border-gray-300   rounded-md sm:w-4/5 md:w-full lg:w-full"
                         type="text"
-                        placeholder="Search Globally"
+                        placeholder="Search in this page"
                         value={searchQuery}
                         onChange = {
                             (e)=>{setSearchQuery(e.target.value);}
