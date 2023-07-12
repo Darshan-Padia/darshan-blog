@@ -8,7 +8,9 @@ export const AdSection = () => {
     return (
         // adding ads di
         <div>
-            <Adsense client_id={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE} />
+            {/* <Adsense client_id={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE} /> */}
+            <Adsense client_id={NEXT_PUBLIC_GOOGLE_ADSENSE} />
+
         </div>
     );
 };
