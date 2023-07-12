@@ -21,7 +21,9 @@ const comments = async(req, res) => {
 
     const graphQLClient = new GraphQLClient(graphqlAPI, {
         headers: {
-            authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+            // authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+            authorization: `Bearer ${GRAPHCMS_TOKEN}`,
+
         }
     });
     
