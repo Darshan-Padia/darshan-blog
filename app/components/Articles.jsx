@@ -67,7 +67,7 @@ const Articles = ({
 
                 {filteredData.length === 0 && (
                     <div className="text-2xl font-sans light:text-gray-900 flex h-full w-full justify-center items-center">
-                        No articles found
+                        Fetching articles...
                     </div>
                 )}
 
