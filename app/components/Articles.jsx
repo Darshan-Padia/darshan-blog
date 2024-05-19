@@ -67,7 +67,12 @@ const Articles = ({
 
                 {filteredData.length === 0 && (
                     <div className="text-2xl font-sans light:text-gray-900 flex h-full w-full justify-center items-center">
-                        Fetching articles...
+                        {/* if category array empty then fetching articles else if category array has something -> no articles found */}
+                        {catArray.length === 0 ? (
+                            "Please wait... Loading Articles"
+                        ) : (
+                            "No Articles Found in this category"
+                        )}
                     </div>
                 )}
 
